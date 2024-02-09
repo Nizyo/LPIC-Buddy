@@ -1,0 +1,80 @@
+<!--//check-all.component.html-->
+
+<!-- Header für die Überschrift des Trainings -->
+<h1><p class="headline">LPIC Training (Alle Fragen)</p></h1>
+
+<!-- Hauptcontainer für den gesamten Inhalt -->
+<div class="container">
+  <!-- Container für die Anzeige von Fragen und Antworten -->
+  <div class="question-container">
+    <!-- Abschnitt nach dem Training oder bei Erreichen von 7 falschen Antworten -->
+    <div *ngIf="showEvaluation || incorrectAnswers >= 7">
+      <h2>Training beendet!</h2>
+      <p>Richtige Antworten: {{ correctAnswers }}</p>
+      <p>Falsche Antworten: {{ incorrectAnswers }}</p>
+      <button (click)="navigateToTraining()">Hier lernen</button>
+    </div>
+
+    <!-- Abschnitt während des Trainings -->
+    <div *ngIf="!showEvaluation && incorrectAnswers < 7">
+      <!-- Überschrift und Stil basierend auf Textfarbe der Frage -->
+      <h2 [ngStyle]="{'color': questions[currentQuestionIndex].textColor}">Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}:</h2>
+      
+      <!-- Frage und Stil basierend auf Textfarbe der Frage -->
+      <p [ngStyle]="{'color': questions[currentQuestionIndex].textColor}">{{ questions[currentQuestionIndex].frage }}</p>
+      
+      <!-- Abschnitt für Multiple-Choice-Antworten -->
+      <ng-container *ngIf="istMehrAlsEineRichtigeAntwort(questions[currentQuestionIndex].antworten)">
+        <div *ngFor="let answer of questions[currentQuestionIndex].antworten; let i = index">
+          <!-- Checkbox für Mehrfachauswahl -->
+          
+
+          <ng-container *ngIf="istMehrAlsEineRichtigeAntwort(questions[currentQuestionIndex].antworten)">
+            <input type="checkbox" [name]="questions[currentQuestionIndex].frage" [checked]="isAnswerSelected(i)" (change)="toggleCheckbox(i)" />
+          </ng-container>
+          <!-- Anzeige der Antwortoption mit Stil basierend auf Textfarbe der Antwort -->
+          <label [ngStyle]="{'color': answer.textColor}">{{ answer.option }}</label>
+        </div>
+      </ng-container>
+
+
+      <ng-container *ngIf="!istMehrAlsEineRichtigeAntwort(questions[currentQuestionIndex].antworten)">
+        <div *ngFor="let answer of questions[currentQuestionIndex].antworten; let i = index">
+          <!-- Checkbox für Mehrfachauswahl -->
+          
+
+          <ng-container *ngIf="!istMehrAlsEineRichtigeAntwort(questions[currentQuestionIndex].antworten)">
+            <!-- Radio-Button für Single Choice -->
+            <input type="radio" [name]="questions[currentQuestionIndex].frage" [checked]="isAnswerSelected(i)" (change)="toggleRadiobutton(i)" />
+          </ng-container>
+          <!-- Anzeige der Antwortoption mit Stil basierend auf Textfarbe der Antwort -->
+          <label [ngStyle]="{'color': answer.textColor}">{{ answer.option }}</label>
+        </div>
+      </ng-container>
+      
+      
+      <!-- Abschnitt für Fill-in-the-Blank-Antwort -->
+      <ng-container *ngIf="questions[currentQuestionIndex].fillin">
+        <input type="text" [(ngModel)]="fillInAnswers[currentQuestionIndex]" placeholder="Antwort eingeben" />
+      </ng-container>
+      
+      <!-- Anzeige der richtigen Antwort, wenn falsch beantwortet -->
+      <div *ngIf="displayCorrectAnswer">
+        <br><p>Richtige Antwort: <br>{{ getCorrectAnswer() }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons für Aktionen während des Trainings -->
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="prevQuestion()">Letzte Frage</button>
+  <button class="btn btn-success" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="checkAnswer()">Antwort überprüfen</button>
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="nextQuestion()">Nächste Frage</button>
+  <button class="btn btn-danger" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation" (click)="finishTraining()">Training beenden</button>
+
+  <!-- Abschnitt für die Anzeige von Ergebnissen nach dem Training -->
+  <p class="result" *ngIf="!showEvaluation">Richtige Antworten: {{ correctAnswers }}</p>
+  <p class="result" *ngIf="!showEvaluation">Falsche Antworten: {{ incorrectAnswers }}</p>
+  <div class="result-fragenanzahl" *ngIf="!showEvaluation">
+    <p>Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}</p>
+  </div>
+</div>

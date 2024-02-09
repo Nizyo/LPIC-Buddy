@@ -1,0 +1,58 @@
+<!-- exam-all.component.html -->
+
+<!-- Header mit Überschrift für die Prüfung -->
+<h1><p class="headline">LPIC Prüfung (Random Fragen)</p></h1>
+
+<!-- Container für die gesamte Prüfungsseite -->
+<div class="container">
+  <!-- Container für die Frage -->
+  <div class="question-container">
+    <!-- Anzeige, wenn alle Fragen beantwortet wurden oder zu viele falsche Antworten -->
+    <div *ngIf="currentQuestionIndex >= questions.length || incorrectAnswers >= 7">
+      <h2>Prüfung beendet!</h2>
+      <p>Richtige Antworten: {{ correctAnswers }}</p>
+      <p>Falsche Antworten: {{ incorrectAnswers }}</p>
+
+      <!-- Anzeige und Hinweis bei zu vielen falschen Antworten -->
+      <p *ngIf="incorrectAnswers >= 7">
+        Die Prüfung wurde aufgrund von 7 falschen Antworten abgebrochen.<br />
+        Du solltest lieber nochmal lernen!<br /><br />
+        <button class="button" (click)="navigateToTraining()">
+          Zurück zur Trainingsseite
+        </button>
+      </p>
+    </div>
+
+    <!-- Anzeige der aktuellen Frage, solange nicht alle Fragen beantwortet wurden -->
+    <div *ngIf="currentQuestionIndex < questions.length && incorrectAnswers < 7">
+      <h2>Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}:</h2>
+
+      <!-- Anzeige des Fragetextes -->
+      <p>{{ questions[currentQuestionIndex].frage }}</p>
+
+      <!-- Anzeige der Antwortmöglichkeiten, je nach Fragetyp -->
+      <ng-container *ngIf="questions[currentQuestionIndex].antworten">
+        <div *ngFor="let answer of questions[currentQuestionIndex].antworten; let i = index">
+          <!-- Checkbox oder Radio-Button je nach Fragentyp -->
+          <ng-container *ngIf="istMehrAlsEineRichtigeAntwort(questions[currentQuestionIndex].antworten)">
+            <input type="checkbox" [name]="questions[currentQuestionIndex].frage" [checked]="isAnswerSelected(i)" (change)="toggleCheckbox(i)" />
+          </ng-container>
+          <ng-container *ngIf="!istMehrAlsEineRichtigeAntwort(questions[currentQuestionIndex].antworten)">
+            <input type="radio" [name]="questions[currentQuestionIndex].frage" [checked]="isAnswerSelected(i)" (change)="toggleRadiobutton(i)" />
+          </ng-container>
+          <!-- Anzeige der Antwortoption mit Stil basierend auf Textfarbe der Antwort -->
+          <label [ngStyle]="{'color': answer.textColor}">{{ answer.option }}</label>
+        </div>
+      </ng-container>
+
+      <!-- Eingabefeld bei Fragentyp "fillin" -->
+      <ng-container *ngIf="questions[currentQuestionIndex].fillin">
+        <input type="text" [(ngModel)]="fillInAnswers[currentQuestionIndex]" placeholder="Antwort eingeben" />
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Button für die vorherige Frage -->
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" (click)="lastFrage()">letzte Frage</button>
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" (click)="nextFrage()">nächste Frage</button>
+</div>

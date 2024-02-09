@@ -1,0 +1,17 @@
+<!-- learn-mc.component.html -->
+
+<h1><p class="headline">LPIC Fragen (Multiple Choice)</p></h1>
+<div class="container">
+  <div *ngFor="let frage of fragen; let i = index" class="question-container">
+      <h3 class="question-number">Frage {{ i + 1 }}</h3>
+      <h3>{{ frage.frage }}</h3>
+      <div *ngFor="let antwort of frage.antworten" class="answer-option">
+          <!-- Stil der Antwort basierend auf Richtigkeit anpassen -->
+          <span [ngStyle]="{'color': isAntwortRichtig(antwort, i) ? 'green' : 'black', 'font-weight': isAntwortRichtig(antwort, i) ? 'bold' : 'normal'}">
+              {{ antwort.option }}
+          </span>
+      </div>
+      <!-- Button zum Anzeigen der Antworten -->
+      <button class="btn answer-button" (click)="zeigeAntworten(i)">Antwort anzeigen</button>
+  </div>
+</div>

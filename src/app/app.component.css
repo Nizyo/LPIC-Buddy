@@ -1,0 +1,140 @@
+/* Stildefinitionen für .content-container */
+.content-container {
+  border: 2px solid #000000;
+  padding: 20px;
+  margin: 80px; /* Äußerer Rand */
+  margin-top: 20px; /* Oberer Rand */
+  background-color: rgb(226, 226, 228);
+}
+
+/* Stildefinitionen für .simulator-info h2 */
+.simulator-info h2 {
+  font-weight: bold;
+}
+
+/* Stildefinitionen für .simulator-info ul */
+.simulator-info ul {
+  list-style-type: decimal;
+  margin-left: 20px;
+}
+
+/* Stildefinitionen für .headline */
+.headline {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Stildefinitionen für nav.navbar */
+nav.navbar {
+  background-color: #3f51b5; /* Blauer Hintergrund */
+}
+
+/* Stildefinitionen für nav.navbar a */
+nav.navbar a {
+  color: #fff !important; /* Weiße Schrift */
+  font-weight: bold;
+  padding: 0 40px;
+}
+
+/* Hintergrundfarbe für das Dropdown-Menü */
+.navbar-nav li .dropdown-menu {
+  background-color: #3f51b5;
+}
+
+/* Hintergrundfarbe der Dropdown-Elemente */
+.navbar-nav li .dropdown-menu a {
+  background-color: #3f51b5;
+}
+
+/* Ändern der Hintergrundfarbe beim Überfahren der Dropdown-Elemente */
+.navbar-nav li .dropdown-menu a:hover {
+  background-color: #3f51f1;
+}
+
+/* Hervorhebung beim Überfahren der Navigationslinks */
+nav.navbar a:hover {
+  background-color: #3f51f1;
+}
+
+/* Stildefinitionen für .uk-preloader */
+.uk-preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background: #3f51b5;
+  left: 0;
+  right: 0;
+}
+
+/* Stildefinitionen für .uk-preloader .spinner */
+.uk-preloader .spinner {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  top: 50%;
+  margin-top: -70px;
+}
+
+/* Stildefinitionen für .uk-preloader .spinner .double-bounce1 und .double-bounce2 */
+.uk-preloader .spinner .double-bounce1,
+.uk-preloader .spinner .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+/* Stildefinitionen für .uk-preloader .spinner .double-bounce2 */
+.uk-preloader .spinner .double-bounce2 {
+  opacity: 0.8;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+/* Schlüsselbildanimation für den Lade-Spinner */
+@-webkit-keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* Schlüsselbildanimation für den Lade-Spinner */
+@keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* Stildefinitionen für footer */
+footer {
+  font-size: 14px; 
+  color: #555; 
+  margin-top: 20px; /* Oberer Abstand, um ihn vom vorherigen Inhalt zu trennen */
+  margin-left: 20px;
+}
+
+/* Füge das (c) Symbol hinzu */
+footer::after {
+  content: ' © bosscoding.de';
+  font-size: 12px; /* Schriftgröße des (c) Symbols */
+  color: #999; 
+}

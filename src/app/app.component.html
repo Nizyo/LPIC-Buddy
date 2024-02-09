@@ -1,0 +1,95 @@
+<!-- app.component.html -->
+
+<!-- Custom Preloader -->
+<div class="uk-preloader" *ngIf="showPreloader">
+    <div class="spinner">
+        <div class="double-bounce1"></div> 
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <!-- Startseite -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/">Startseite</a>
+            </li>
+            <!-- Fragenliste Dropdown -->
+            <li ngbDropdown class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    Fragenliste
+                </a>
+                <div ngbDropdownMenu aria-labelledby="questionsDropdown">
+                    <a class="dropdown-item" routerLink="/learn-all">Alle Fragen</a>
+                    <a class="dropdown-item" routerLink="/learn-mc">Multiple Choice Fragen</a>
+                    <a class="dropdown-item" routerLink="/learn-sc">Single Choice Fragen</a>
+                    <a class="dropdown-item" routerLink="/learn-fillin">Fillin Fragen</a>
+                </div>
+            </li>
+            <!-- Training Dropdown -->
+            <li ngbDropdown class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    Training
+                </a>
+                <div ngbDropdownMenu aria-labelledby="questionsDropdown">
+                    <a class="dropdown-item" routerLink="/check-all">Alle Fragen</a>
+                    <a class="dropdown-item" routerLink="/check-mc">Multiple Choice Fragen</a>
+                    <a class="dropdown-item" routerLink="/check-sc">Single Choice Fragen</a>
+                    <a class="dropdown-item" routerLink="/check-fillin">Fillin Fragen</a>
+                </div>
+            </li>
+            <!-- Prüfung -->
+            <li ngbDropdown class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    Prüfung
+                </a>
+                <div ngbDropdownMenu aria-labelledby="questionsDropdown">
+                    <a class="dropdown-item" routerLink="/exam-all">Alle Fragen</a>
+                    <a class="dropdown-item" routerLink="/exam-mc">Multiple Choice Fragen</a>
+                    <a class="dropdown-item" routerLink="/exam-sc">Single Choice Fragen</a>
+                    <a class="dropdown-item" routerLink="/exam-fillin">Fillin Fragen</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Startseite Content -->
+<br>
+<br>
+<h1><div class="headline" *ngIf="isStartseite()">LPIC-Buddy</div></h1>
+<div class="content-container" *ngIf="isStartseite()">
+    <!-- Simulator Information -->
+    <div class="simulator-info">
+        <p>Herzlich willkommen zu unserem LPIC-Buddy – Ihrem perfekten Begleiter auf dem Weg zum Erfolg!<br>
+            Unser Simulator bietet Ihnen eine umfassende Vorbereitung auf die LPIC-Zertifizierungsprüfung,<br>egal ob Sie sich auf die LPIC-1 oder LPIC-2 Prüfung vorbereiten.
+        </p>
+        <br><br>
+        <!-- Funktionen des Simulators -->
+        <h2>Funktionen des LPIC-Buddy´s</h2>
+        <ul>
+            <li>Prüfungsfragen: Hier finden Sie alle Fragen mit den entsprechenden Antworten.<br>Perfekt, um die Fragen schnell auswendig zu lernen und Ihr Wissen zügig zu festigen.</li><br>
+            <li>Training: Intensives Training, Frage für Frage. Sofortiges Feedback hilft Ihnen,<br>die Fragen rasch zu memorieren und Ihr Wissen effektiv zu steigern.</li><br>
+            <li>Prüfungssimulation: Stellen Sie sich der Herausforderung einer vollständigen Prüfungssimulation mit 70 Fragen.<br>Die Auswertung erfolgt erst nach dem Beantworten aller Fragen, um Ihnen ein klares Bild Ihres Auswendiglernfortschritts zu vermitteln.</li>
+        </ul>
+        <br>
+        <br>
+        <!-- Warum unser Simulator? -->
+        <h2>Warum unser Simulator?</h2>
+        <p>Unser Simulator wurde entwickelt, um Ihnen das schnelle Auswendiglernen der Fragen zu ermöglichen.<br>Durch intensive Übungen konzentrieren Sie sich gezielt darauf, die Prüfungsfragen effizient zu memorieren.</p>
+
+        <p>Bereiten Sie sich jetzt vor und erlangen Sie Ihre Zertifizierung mühelos mit dem LPIC-Buddy!</p>
+    </div>
+</div>
+
+<!-- Footer -->
+
+
+<!-- Angular Router Outlet for Components -->
+<router-outlet></router-outlet>
+<footer>Made by</footer>

@@ -1,0 +1,99 @@
+<!--//check-mc.component.html-->
+
+<!-- Überschrift für die Seite -->
+<h1><p class="headline">LPIC Training (Multiple Choice)</p></h1>
+
+<!-- Container für den Inhalt der Seite -->
+<div class="container">
+  <!-- Container für Fragen und Antworten -->
+  <div class="question-container">
+
+    <!-- Anzeige nach dem Beenden des Trainings oder bei zu vielen falschen Antworten -->
+    <div *ngIf="showEvaluation">
+      <h2>Training beendet!</h2>
+      <p>Richtige Antworten: {{ correctAnswers }}</p>
+      <p>Falsche Antworten: {{ incorrectAnswers }}</p>
+      <button (click)="navigateToTraining()">Hier lernen</button>
+    </div>
+    <div *ngIf="incorrectAnswers >= 7">
+      <h2>Training aufgrund 7 falscher Antworten abgebrochen!</h2>
+      <p>Richtige Antworten: {{ correctAnswers }}</p>
+      <p>Falsche Antworten: {{ incorrectAnswers }}</p>
+      <button (click)="navigateToTraining()">Hier lernen</button>
+    </div>
+
+    <!-- Anzeige während des Trainings -->
+    <div *ngIf="!showEvaluation && incorrectAnswers < 7">
+      <!-- Frageinformationen -->
+      <h2 [ngStyle]="{'color': questions[currentQuestionIndex].textColor}">
+        Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}:
+      </h2>
+      <p [ngStyle]="{'color': questions[currentQuestionIndex].textColor}">
+        {{ questions[currentQuestionIndex].frage }}
+      </p>
+
+      <!-- Antwortmöglichkeiten -->
+      <ng-container *ngIf="questions[currentQuestionIndex].antworten">
+        <div *ngFor="let answer of questions[currentQuestionIndex].antworten; let i = index">
+          
+         
+
+          <!-- Checkbox für Multiple-Choice-Fragen -->
+          <ng-container *ngIf="questions[currentQuestionIndex].antworten.length > 1">
+            <input
+              type="checkbox"
+              [name]="questions[currentQuestionIndex].frage"
+              [checked]="isAnswerSelected(i)"
+              (change)="toggleCheckbox(i)"
+            />
+          </ng-container>
+
+          <!-- Anzeige der Antwortmöglichkeit -->
+          <label>{{ answer.option }}</label>
+        </div>
+      </ng-container>
+
+      <!-- Textfeld für Fill-in-Fragen -->
+      <ng-container *ngIf="questions[currentQuestionIndex].fillin">
+        <input
+          type="text"
+          [(ngModel)]="fillInAnswers[currentQuestionIndex]"
+          placeholder="Antwort eingeben"
+        />
+      </ng-container>
+    </div>
+
+    <!-- Anzeige der korrekten Antwort, wenn falsch beantwortet -->
+    <div *ngIf="displayCorrectAnswer">
+      <br>
+      <p>Richtige Antwort: <br>{{ getCorrectAnswer() }}</p>
+    </div>
+
+  </div>
+
+  <!-- Buttons für die Navigation und Auswertung -->
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="prevQuestion()">Letzte Frage</button>
+
+  <button class="btn btn-success" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="checkAnswer()">
+    Antwort überprüfen
+  </button>
+  
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="nextQuestion()">
+    Nächste Frage
+  </button>
+  <button class="btn btn-danger" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation" (click)="finishTraining()">
+    Training beenden
+  </button>
+
+  <!-- Ergebnisanzeige -->
+  <p class="result" *ngIf="!showEvaluation">
+    Richtige Antworten: {{ correctAnswers }}
+  </p>
+  <p class="result" *ngIf="!showEvaluation">
+    Falsche Antworten: {{ incorrectAnswers }}
+  </p>
+  <div class="result-fragenanzahl" *ngIf="!showEvaluation">
+    <p>Frage {{ currentQuestionIndex + 1 }} von {{ questions.length }}</p>
+  </div>
+
+</div>

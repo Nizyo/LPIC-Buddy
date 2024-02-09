@@ -1,0 +1,85 @@
+<!-- check-fillin.component.html -->
+
+<!-- Strukturiert die Ansicht für die Fill-in-Fragen und ihre Auswertung -->
+<h1><p class="headline">LPIC Training (Fillin)</p></h1>
+<div class="container" >
+  <div class="question-container" *ngIf="!showEvaluation" >
+    <!-- Zeigt die Frage nur an, wenn das Training nicht beendet ist und noch nicht zu viele Fehler gemacht wurden -->
+    <div
+      *ngIf="
+        !showEvaluation &&
+        currentQuestionIndex < fragen.length &&
+        incorrectAnswers < 7
+      "
+    >
+      <!-- Frageinformationen anzeigen -->
+      <h2>Frage {{ currentQuestionIndex + 1 }} von {{ fragen.length }}:</h2>
+      {{ fragen[currentQuestionIndex]?.frage }}
+      <br />
+      <br />
+      <!-- Eingabefeld für die Nutzerantwort -->
+      <input
+        [ngModel]="getUserAntwort(fragen[currentQuestionIndex]?.index)"
+        (ngModelChange)="
+          setUserAntwort(fragen[currentQuestionIndex]?.index, $event)
+        "
+        [class.correct-answer]="
+          fragen[currentQuestionIndex]?.antwortBestaetigt &&
+          isAntwortRichtig(fragen[currentQuestionIndex])
+        "
+        [class.incorrect-answer]="
+          fragen[currentQuestionIndex]?.antwortBestaetigt &&
+          !isAntwortRichtig(fragen[currentQuestionIndex])
+        "
+        placeholder="Ihre Antwort"
+        class="fillin-input"
+      />
+    </div>
+  </div>
+  <div
+    *ngIf="
+      showEvaluation ||
+      currentQuestionIndex === fragen.length ||
+      incorrectAnswers >= 7
+    "
+  >
+    <!-- Anzeige nach dem Beenden des Trainings -->
+    <p *ngIf="incorrectAnswers >= 7">
+      Die Prüfung wurde aufgrund von 7 falschen Antworten abgebrochen.<br />
+      Du solltest lieber nochmal lernen!<br /><br />
+      <button class="button" (click)="navigateToTraining()">
+        Zurück zur Trainingsseite
+      </button>
+    </p>
+  </div>
+
+  <div
+    class="counter"
+    *ngIf="
+      !showEvaluation &&
+      currentQuestionIndex < fragen.length &&
+      incorrectAnswers < 7
+    "
+  >
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="prevQuestion()">Letzte Frage</button>
+
+  <button class="btn btn-success" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="bestaetigeAntwort(fragen[currentQuestionIndex])">
+    Antwort überprüfen
+  </button>
+  
+  <button class="btn btn-primary" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation && incorrectAnswers < 7" (click)="nextQuestion()">
+    Nächste Frage
+  </button>
+  <button class="btn btn-danger" style="margin-right: 2px; font-weight: bold;" *ngIf="!showEvaluation" (click)="finishTraining()">
+    Training beenden
+  </button>
+    <!-- Schaltflächen für die Antwortbestätigung und das Beenden des Trainings -->
+    
+    <!-- Anzeige der aktuellen Fragenummer und der Anzahl der richtigen und falschen Antworten -->
+    <div class="result-fragenanzahl" *ngIf="!showEvaluation">
+      <p>Frage {{ currentQuestionIndex + 1 }} von {{ fragen.length }}</p>
+    </div>
+    <p class="result">Falsch beantwortet: {{ incorrectAnswers }}</p>
+    <p class="result">Richtig beantwortet: {{ correctAnswers }}</p>
+  </div>
+</div>

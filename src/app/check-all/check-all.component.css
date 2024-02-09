@@ -1,0 +1,87 @@
+.container {
+    width: 66.666%; /* 2/3 des Bildschirms */
+    margin: 0 auto; /* Zentrierung des Rahmens */
+  }
+  
+  .result {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* Änderung zu flex-end für rechte Ausrichtung */
+    align-items: center;
+  }
+  
+  .result-fragenanzahl {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Zentriert die Elemente vertikal */
+  }
+  
+  .result-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Zentriert die Elemente vertikal */
+    margin-top: 5px; /* Geringer Abstand zwischen result-container und question-container */
+
+  }
+  
+  .question-container {
+    border: 2px solid #333; /* Rahmendicke und Farbe anpassen */
+    border-radius: 25px;
+    padding: 10px; /* Innenabstand des Rahmens anpassen */
+    margin-bottom: 20px; /* Abstand zwischen den Fragecontainern anpassen */
+    position: relative; /* Positionierung des Buttons relativ zum Container */
+    background-color: rgb(226, 226, 228);
+  }
+  
+  
+  
+  .answer-button {
+    position: absolute;
+    border-radius: 5px;
+    bottom: 3%;
+    right: 1%;
+    font-weight: bold;
+    background-color: #28a745; /* Hintergrundfarbe von btn-success in Bootstrap */
+    color: #fff; /* Textfarbe auf Weiß setzen oder entsprechend anpassen */
+    
+}
+  
+  .answer-option {
+    display: block;
+    margin-bottom: 5px; /* Abstand zwischen den Antwortoptionen anpassen */
+  }
+  
+  
+  .question-number {
+    text-align: center;
+    margin-top: 0; /* Um den Standard-Margin für h3 aufzuheben */
+    text-decoration: underline;
+  }
+  .headline {
+    text-align: center;
+    margin-top: 0; /* Um den Standard-Margin für h3 aufzuheben */
+    font-weight: bold;
+  }
+
+.correct-answer {
+  border: 1px solid green; /* Grüner Rand für korrekte Antwort */
+}
+
+.incorrect-answer {
+  border: 1px solid red; /* Roter Rand für falsche Antwort */
+}
+
+/* Klasse für korrekte Antwort */
+.correct {
+  background-color: green;
+}
+
+/* Klasse für falsche Antwort */
+.incorrect {
+  background-color: red;
+}
+
+
+  
+  

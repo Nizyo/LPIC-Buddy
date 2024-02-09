@@ -1,0 +1,315 @@
+[
+    
+    {
+        "frage": "Consider the following directory: drwxrwxr-x 2 root sales 4096 Jan 1 15:21 sales. Which command ensures new files created within the directory sales are owned by the group sales? (Choose two.)",
+        "antworten": [
+            {"option": "A. chmod g+s sales", "istRichtig": true},
+            {"option": "B. setpol -R newgroup=sales sales", "istRichtig": false},
+            {"option": "C. chgrp -p sales sales", "istRichtig": false},
+            {"option": "D. chown --persistent *.sales sales", "istRichtig": false},
+            {"option": "E. chmod 2775 sales", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "In order to display all currently mounted filesystems, which of the following commands could be used? (Choose two.)",
+        "antworten": [
+            {"option": "A. cat /proc/self/mounts", "istRichtig": true},
+            {"option": "B. free", "istRichtig": false},
+            {"option": "C. lsmounts", "istRichtig": false},
+            {"option": "D. mount", "istRichtig": true},
+            {"option": "E. cat /proc/filesystems", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following statements are true about the boot sequence of a PC using a BIOS? (Choose two.)",
+        "antworten": [
+            {"option": "A. Some parts of the boot process can be configured from the BIOS", "istRichtig": true},
+            {"option": "B. Linux does not require the assistance of the BIOS to boot a computer", "istRichtig": false},
+            {"option": "C. The BIOS boot process starts only if secondary storage, such as the hard disk, is functional", "istRichtig": false},
+            {"option": "D. The BIOS initiates the boot process after turning the computer on", "istRichtig": true},
+            {"option": "E. The BIOS is started by loading hardware drivers from secondary storage, such as the hard disk", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "What is true regarding UEFI firmware? (Choose two.)",
+        "antworten": [
+            {"option": "A. It can read and interpret partition tables", "istRichtig": true},
+            {"option": "B. It can use and read certain file systems", "istRichtig": true},
+            {"option": "C. It stores its entire configuration on the /boot/ partition", "istRichtig": false},
+            {"option": "D. It is stored in a special area within the GPT metadata", "istRichtig": false},
+            {"option": "E. It is loaded from a fixed boot disk position", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "When is the content of the kernel ring buffer reset? (Choose two.)",
+        "antworten": [
+            {"option": "A. When the ring buffer is explicitly reset using the command dmesg --clear", "istRichtig": true},
+            {"option": "B. When the ring buffer is read using dmesg without any additional parameters", "istRichtig": false},
+            {"option": "C. When a configurable amount of time, 15 minutes by default, has passed", "istRichtig": false},
+            {"option": "D. When the kernel loads a previously unloaded kernel module", "istRichtig": false},
+            {"option": "E. When the system is shut down or rebooted", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following directories on a 64 bit Linux system typically contain shared libraries? (Choose two.)",
+        "antworten": [
+            {"option": "A. ~/.lib64/", "istRichtig": false},
+            {"option": "B. /usr/lib64/", "istRichtig": true},
+            {"option": "C. /var/lib64/", "istRichtig": false},
+            {"option": "D. /lib64/", "istRichtig": true},
+            {"option": "E. /opt/lib64/", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following files exist in a standard GRUB 2 installation? (Choose two.)",
+        "antworten": [
+            {"option": "A. /boot/grub/stages/stage0", "istRichtig": false},
+            {"option": "B. /boot/grub/i386-pc/lvm.mod", "istRichtig": true},
+            {"option": "C. /boot/grub/fstab", "istRichtig": false},
+            {"option": "D. /boot/grub/grub.cfg", "istRichtig": true},
+            {"option": "E. /boot/grub/linux/vmlinuz", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following properties of a Linux system should be changed when a virtual machine is cloned? (Choose two.)",
+        "antworten": [
+            {"option": "A. The partitioning scheme", "istRichtig": false},
+            {"option": "B. The file system", "istRichtig": false},
+            {"option": "C. The D-Bus Machine ID", "istRichtig": true},
+            {"option": "D. The permissions of /root/", "istRichtig": false},
+            {"option": "E. The SSH host keys", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "What is true regarding the configuration of yum? (Choose two.)",
+        "antworten": [
+            {"option": "A. Changes to the repository configuration become active after running yum confupdate", "istRichtig": true},
+            {"option": "B. Changes to the yum configuration become active after restarting the yumd service", "istRichtig": false},
+            {"option": "C. The configuration of package repositories can be divided into multiple files", "istRichtig": true},
+            {"option": "D. Repository configurations can include variables such as $basearch or $releasever", "istRichtig": false},
+            {"option": "E. In case /etc/yum.repos.d/ contains files, /etc/yum.config ignored", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following commands list all files and directories within the /tmp/ directory and its subdirectories which are owned by the user root? (Choose two.)",
+        "antworten": [
+            {"option": "A. find /tmp -user root -print", "istRichtig": true},
+            {"option": "B. find -path /tmp -uid root", "istRichtig": false},
+            {"option": "C. find /tmp -uid root -print", "istRichtig": false},
+            {"option": "D. find /tmp -user root", "istRichtig": true},
+            {"option": "E. find -path /tmp -user root -print", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following are valid stream redirection operators within Bash? (Choose two.)",
+        "antworten": [
+            {"option": "A. <", "istRichtig": true},
+            {"option": "B. #>", "istRichtig": false},
+            {"option": "C. %>", "istRichtig": false},
+            {"option": "D. >>>", "istRichtig": false},
+            {"option": "E. 2>&1", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "From a Bash shell, which of the following commands directly execute the instructions from the file /usr/local/bin/runme.sh without starting a subshell? (Choose two.)",
+        "antworten": [
+            {"option": "A. source /usr/local/bin/runme.sh", "istRichtig": true},
+            {"option": "B. /usr/local/bin/runme.sh", "istRichtig": false},
+            {"option": "C. /bin/bash /usr/local/bin/runme.sh", "istRichtig": false},
+            {"option": "D. .  /usr/local/bin/runme.sh", "istRichtig": true},
+            {"option": "E. run /usr/local/bin/runme.sh", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following commands can be used to determine how long the system has been running? (Choose two.)",
+        "antworten": [
+            {"option": "A. uptime", "istRichtig": true},
+            {"option": "B. up", "istRichtig": false},
+            {"option": "C. time --up", "istRichtig": false},
+            {"option": "D. uname -u", "istRichtig": false},
+            {"option": "E. top", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which wildcards will match the following filenames? (Choose two.) ttyS0 ttyS1 ttyS2",
+        "antworten": [
+            {"option": "A. ttyS[1-5]", "istRichtig": false},
+            {"option": "B. tty?[0-5]", "istRichtig": true},
+            {"option": "C. tty*2", "istRichtig": false},
+            {"option": "D. tty[A-Z][012]", "istRichtig": true},
+            {"option": "E. tty[Ss][02]", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Instead of supplying an explicit device in /etc/fstab for mounting, what other options may be used to identify the intended partition? (Choose two.)",
+        "antworten": [
+            {"option": "A. LABEL", "istRichtig": true},
+            {"option": "B. ID", "istRichtig": false},
+            {"option": "C. FIND", "istRichtig": false},
+            {"option": "D. NAME", "istRichtig": false},
+            {"option": "E. UUID", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following files are found in the /boot/ filesystem? (Choose two.)",
+        "antworten": [
+            {"option": "A. Linux kernel images", "istRichtig": true},
+            {"option": "B. Bash shell binaries", "istRichtig": false},
+            {"option": "C. systemd target and service units", "istRichtig": false},
+            {"option": "D. Initial ramdisk images", "istRichtig": true},
+            {"option": "E. fsck binaries", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following statements are correct when comparing Linux containers with traditional virtual machines (e.g. LXC vs. KVM)? (Choose three.)",
+        "antworten": [
+            {"option": "A. Containers are a lightweight virtualization method where the kernel controls process isolation and resource management.", "istRichtig": true},
+            {"option": "B. Fully virtualized machines can run any operating system for a specific hardware architecture within the virtual machine.", "istRichtig": true},
+            {"option": "C. Containers are completely decoupled from the host system’s physical hardware and can only use emulated virtual hardware devices.", "istRichtig": false},
+            {"option": "D. The guest environment for fully virtualized machines is created by a hypervisor which provides virtual and emulated hardware devices.", "istRichtig": true},
+            {"option": "E. Containers on the same host can use different operating systems, as the container hypervisor creates separate kernel execution.", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following commands are valid in the GRUB 2 configuration file? (Choose two.)",
+        "antworten": [
+            {"option": "A. menuentry", "istRichtig": true},
+            {"option": "B. uefi", "istRichtig": false},
+            {"option": "C. pxe-ifconfig", "istRichtig": false},
+            {"option": "D. insmod", "istRichtig": true},
+            {"option": "E. kpartx", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "What can the Logical Volume Manager (LVM) be used for? (Choose three.)",
+        "antworten": [
+            {"option": "A. To create snapshots.", "istRichtig": true},
+            {"option": "B. To dynamically change the size of logical volumes.", "istRichtig": true},
+            {"option": "C. To dynamically create or delete logical volumes.", "istRichtig": true},
+            {"option": "D. To create RAID 9 arrays.", "istRichtig": false},
+            {"option": "E. To encrypt logical volumes.", "istRichtig": false}
+        ]
+        
+    },
+    {
+        "frage": "What are the main differences between GPT and MBR partition tables regarding maximum number and size of partitions? (Choose two.)",
+        "antworten": [
+            {"option": "A. MBR can handle partition sizes up to 4 TB, whereas GPT supports partition sizes up to 128 ZB.", "istRichtig": true},
+            {"option": "B. By default, GPT can manage up to 128 partitions while MBR only supports four primary partitions.", "istRichtig": false},
+            {"option": "C. By default, GPT can manage up to 64 partitions while MBR only supports 16 primary partitions.", "istRichtig": false},
+            {"option": "D. MBR can handle partition sizes up to 2.2 TB, whereas GPT supports sizes up to 9.4 ZB.", "istRichtig": true},
+            {"option": "E. Both GPT and MBR support up to four primary partitions, each with up to 4096 TB.", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "A backup software heavily uses hard links between files which have not been changed in between two backup runs. Which benefits are realized due to these hard links? (Choose two.)",
+        "antworten": [
+            {"option": "A. The old backups can be moved to slow backup media, such as tapes, while still serving as hard link target in new backups.", "istRichtig": true},
+            {"option": "B. The backup runs faster because hard links are asynchronous operations, postponing the copy operation to a later point in time.", "istRichtig": false},
+            {"option": "C. The backup is guaranteed to be uncharged because a hard linked file cannot be modified after its creation.", "istRichtig": false},
+            {"option": "D. The backup consumes less space because the hard links point to the same data on disk instead of storing redundant copies.", "istRichtig": true},
+            {"option": "E. The backup runs faster because, instead of copying the data of each file, hard links only change file system meta data.", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Running chmod 640 filea.txt as a regular user doesn’t update filea.txt’s permission. What might be a reason why chmod cannot modify the permissions? (Choose two.)",
+        "antworten": [
+            {"option": "A. filea.txt is owned by another user and a regular user cannot change the permissions of another user’s file.", "istRichtig": true},
+            {"option": "B. filea.txt is a symbolic link whose permissions are a fixed value which cannot be changed.", "istRichtig": true},
+            {"option": "C. filea.txt has the sticky bit set and a regular user cannot remove this permission.", "istRichtig": false},
+            {"option": "D. filea.txt is a hard link whose permissions are inherited from the target and cannot be set directly.", "istRichtig": false},
+            {"option": "E. filea.txt has the SetUID bit set which imposes the restriction that only the root user can make changes to the file.", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following Linux filesystems preallocate a fixed number of inodes when creating a new filesystem instead of generating them as needed? (Choose two.)",
+        "antworten": [
+            {"option": "A. JFS", "istRichtig": false},
+            {"option": "B. ext3", "istRichtig": true},
+            {"option": "C. XFS", "istRichtig": false},
+            {"option": "D. ext2", "istRichtig": true},
+            {"option": "E. procfs", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which of the following commands can be used to display the inode number of a given file? (Choose two.)",
+        "antworten": [
+            {"option": "A. inode", "istRichtig": false},
+            {"option": "B. ln", "istRichtig": false},
+            {"option": "C. ls", "istRichtig": true},
+            {"option": "D. cp", "istRichtig": false},
+            {"option": "E. stat", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following commands display the IDs of all processes owned by root? (Choose two.)",
+        "antworten": [
+            {"option": "A. pgrep -c root", "istRichtig": false},
+            {"option": "B. pgrep -u root", "istRichtig": true},
+            {"option": "C. pgrep -f root", "istRichtig": false},
+            {"option": "D. pgrep -U 0", "istRichtig": false},
+            {"option": "E. pgrep -c 0", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following sequences in the vi editor saves the opened document and exits the editor? (Choose two.)",
+        "antworten": [
+            {"option": "A. Ctrl XX", "istRichtig": false},
+            {"option": "B. Ctrl :W", "istRichtig": false},
+            {"option": "C. Esc zz", "istRichtig": false},
+            {"option": "D. Esc :wq", "istRichtig": true},
+            {"option": "E. Esc ZZ", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following tools can show the complete path of an executable file that the current shell would execute when starting a command without specifying its complete path? (Choose two.)",
+        "antworten": [
+            {"option": "A. find", "istRichtig": false},
+            {"option": "B. pwd", "istRichtig": false},
+            {"option": "C. which", "istRichtig": true},
+            {"option": "D. locate", "istRichtig": false},
+            {"option": "E. type", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following commands print the current working directory when using a Bash shell? (Choose two.)",
+        "antworten": [
+            {"option": "A. echo \"${PWD}\"", "istRichtig": true},
+            {"option": "B. echo \"${WD}\"", "istRichtig": false},
+            {"option": "C. printwd", "istRichtig": false},
+            {"option": "D. pwd", "istRichtig": true},
+            {"option": "E. echo \"${pwd}\"", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "What information can the lspci command display about the system hardware? (Choose three.)",
+        "antworten": [
+            {"option": "A. System battery type", "istRichtig": false},
+            {"option": "B. Device IRQ settings", "istRichtig": true},
+            {"option": "C. PCI bus speed", "istRichtig": true},
+            {"option": "D. Ethernet MAC address", "istRichtig": false},
+            {"option": "E. Device vendor identification", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Given the following two symbolic links in a System V init configuration: /etc/rc1.d/K01apache2 /etc/rc2.d/S02apache2 When are the scripts executed that are referenced by these links? (Choose two.)",
+        "antworten": [
+            {"option": "A. S02apache2 is run when runlevel 2 is entered.", "istRichtig": true},
+            {"option": "B. S02apache2 is run when runlevel 2 is left.", "istRichtig": false},
+            {"option": "C. K01apache2 is never run because K indicates a deactivated service.", "istRichtig": false},
+            {"option": "D. Both S02apache2 and K01apache2 are run during a system shutdown.", "istRichtig": false},
+            {"option": "E. K01apache2 is run when runlevel 1 is entered.", "istRichtig": true}
+        ]
+    },
+    {
+        "frage": "Which of the following statements are correct about the initial RAM disk involved in the boot process of Linux? (Choose two.)",
+          "antworten": [
+              {"option": "A. An initramfs is a compressed file system archive, which can be unpacked to examine its contents.", "istRichtig": true},
+             {"option": "B. An initramfs file contains the MBR, the bootloader and the Linux kernel.", "istRichtig": false},
+            {"option": "C. After a successful boot, the initramfs contents are available in /run/initramfs/.", "istRichtig": false},
+            {"option": "D. The kernel uses the initramfs temporarily before accessing the real root file system.", "istRichtig": true},
+            {"option": "E. An initramfs does not depend on a specific kernel version and is not changed after the initial installation.", "istRichtig": false}
+        ]
+      }
+
+]

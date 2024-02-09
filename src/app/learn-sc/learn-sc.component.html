@@ -1,0 +1,34 @@
+<!-- learn-sc.component.html -->
+
+<!-- Hier wird die Oberfläche für das Anzeigen von Single-Choice-Fragen definiert -->
+
+<h1><p class="headline">LPIC Fragen (Single Choice)</p></h1>
+
+<!-- Container für die Fragen -->
+<div class="container">
+  <!-- Iteration über alle Fragen -->
+  <div *ngFor="let frage of fragen; let i = index" class="question-container">
+    <!-- Anzeige der Frage-Nummer -->
+    <h3 class="question-number">Frage {{ i + 1 }}</h3>
+    <!-- Anzeige des Fragentexts -->
+    <h3>{{ frage.frage }}</h3>
+    
+    <!-- Iteration über alle Antwortmöglichkeiten der Frage -->
+    <div *ngFor="let antwort of frage.antworten" class="answer-option">
+      <!-- Anzeige der Antwortoption mit Formatierung basierend auf Korrektheit -->
+      <span
+        [ngStyle]="{
+          color: isAntwortRichtig(antwort, i) ? 'green' : 'black',
+          'font-weight': isAntwortRichtig(antwort, i) ? 'bold' : 'normal'
+        }"
+      >
+        {{ antwort.option }}
+      </span>
+    </div>
+    
+    <!-- Button zum Anzeigen der richtigen Antwort -->
+    <button class="btn answer-button" (click)="zeigeAntworten(i)">
+      Antwort anzeigen
+    </button>
+  </div>
+</div>

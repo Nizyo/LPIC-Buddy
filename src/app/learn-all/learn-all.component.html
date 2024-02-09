@@ -1,0 +1,35 @@
+<!-- learn-all.component.html -->
+
+<!-- Hauptüberschrift -->
+<h1><p class="headline">LPIC Fragen (Alle Fragen)</p></h1>
+<div class="container">
+  <!-- Schleife für jede Frage in der Liste -->
+  <div *ngFor="let frage of fragen; let i = index" class="question-container">
+    <!-- Nummer und Text der Frage -->
+    <h3 class="question-number">Frage {{ i + 1 }}</h3>
+    <h3>{{ frage.frage }}</h3>
+
+    <!-- Antwortoptionen für Fragen mit Antwortoptionen -->
+    <div *ngIf="frage.antworten">
+      <!-- Schleife für jede Antwortoption -->
+      <div *ngFor="let antwort of frage.antworten" class="answer-option">
+        <!-- Text der Antwortoption mit dynamischer Textfarbe und Fettdruck basierend auf Korrektheit -->
+        <span [ngStyle]="{'color': isAntwortRichtig(antwort, i) ? 'green' : 'black', 'font-weight': isAntwortRichtig(antwort, i) ? 'bold' : 'normal'}">
+          {{ antwort.option }}
+        </span>
+      </div>
+      <!-- Button, um Antworten für Fragen mit Antwortoptionen anzuzeigen -->
+      <button *ngIf="!frage.fillin" (click)="zeigeAntworten(i)" class="answer-button">Antwort anzeigen</button>
+    </div>
+
+    <!-- Fill-in-Frage mit Textfeld -->
+    <div *ngIf="frage.fillin">
+      <br>
+      <!-- Anzeige der korrekten Antwort für Fill-in-Fragen -->
+      <p class="answerclick" *ngIf="zeigeAntwortenFillin[i]">Korrekte Antwort: {{ frage.fillin }}</p>
+      <!-- Button, um Antworten für Fill-in-Fragen anzuzeigen -->
+      <br>
+      <button class="btn answer-button" *ngIf="frage.fillin && !zeigeAntwortenFillin[i]" (click)="zeigeFillin(i)">Antwort anzeigen</button>
+    </div>
+  </div>
+</div>

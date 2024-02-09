@@ -1,0 +1,19 @@
+<!-- learn-fillin.component.html -->
+
+<h1><p class="headline">LPIC Fragen (Fillin)</p></h1>
+<div class="container">
+  <!-- Iteration durch alle Fill-in-Fragen -->
+  <div *ngFor="let frage of fragen; let i = index" class="question-container">
+    <!-- Anzeige der Fragenummer -->
+    <h3 class="question-number">Frage {{ i + 1 }}</h3>
+    
+    <!-- Anzeige der Frage -->
+    <h3>{{ frage.frage }}</h3>
+    
+
+    <br>
+    <br>
+    <!-- Button zum Anzeigen der korrekten Antwort -->
+    <button class="btn answer-button" *ngIf="!frage.antwortAngezeigt" (click)="zeigeKorrekteAntwort(frage)">Antwort Anzeigen</button>
+        <!-- Anzeige der korrekten Antwort, wenn die Antwort bestätigt und angezeigt wurde -->
+        <p class="answerclick" *ngIf="frage.antwortBestaetigt && frage.antwortAngezeigt">Korrekte Antwort: {{ frage.fillin }}</p></div>

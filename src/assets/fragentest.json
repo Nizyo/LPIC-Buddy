@@ -1,0 +1,30 @@
+[
+    {
+        "frage": "Which type of file system is created by mkfs when it is executed with the block device name only and without any additional parameters?",
+        "antworten": [
+            {"option": "A. XFS", "istRichtig": false},
+            {"option": "B. VFAT", "istRichtig": false},
+            {"option": "C. ext2", "istRichtig": true},
+            {"option": "D. ext3", "istRichtig": false},
+            {"option": "E. ext4", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which System V init configuration file is commonly used to set the default run level? (Specify the full name of the file, including path.)",
+        "fillin": "/etc/inittab"
+    },
+    {
+        "frage": "In order to display all currently mounted filesystems, which of the following commands could be used? (Choose two.)",
+        "antworten": [
+            {"option": "A. cat /proc/self/mounts", "istRichtig": true},
+            {"option": "B. free", "istRichtig": false},
+            {"option": "C. lsmounts", "istRichtig": false},
+            {"option": "D. mount", "istRichtig": true},
+            {"option": "E. cat /proc/filesystems", "istRichtig": false}
+        ]
+    },
+    {
+        "frage": "Which command is used to start another command with a given nice level? (Specify ONLY the command without any path or parameters.)",
+        "fillin": "nice"
+    }
+]
