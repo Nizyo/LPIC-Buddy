@@ -5,6 +5,10 @@
   margin: 80px; /* Äußerer Rand */
   margin-top: 20px; /* Oberer Rand */
   background-color: rgb(226, 226, 228);
+  
+  width: 80%; /* 2/3 des Bildschirms */
+    margin: 0 auto; /* Zentrierung des Rahmens */
+    
 }
 
 /* Stildefinitionen für .simulator-info h2 */
